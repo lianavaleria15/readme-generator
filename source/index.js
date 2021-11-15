@@ -33,8 +33,13 @@ const questions = [
   },
   {
     type: "list",
-    name: "licence",
-    choices: ["a", "b", "c", "d"],
+    name: "licenceType ",
+    choices: [
+      { name: "a", value: "a" },
+      { name: "a", value: "a" },
+      { name: "a", value: "a" },
+      { name: "a", value: "a" },
+    ],
     message: "Please choose a licence:",
   },
   { type: "input", name: "username", message: "What is your github username?" },
@@ -46,9 +51,53 @@ const questions = [
   },
 ];
 
+//installation steps
+const installationSteps = [
+  {
+    type: "input",
+    name: "installationSteps",
+    message: "Please type the installation steps here:",
+  },
+];
+
+//usage steps question
+const usageSteps = [
+  {
+    type: "input",
+    name: "usageSteps",
+    message: "Please type the usage steps here:",
+  },
+];
+
+//testing steps question
+const testingSteps = [
+  {
+    type: "input",
+    name: "testingSteps",
+    message: "Please type the testing steps here:",
+  },
+];
+
 const initialize = async () => {
   //prompt questions and get answers
   const answers = await inquirer.prompt(questions);
   console.log(answers);
+
+  //conditions for testing, usage, and installation steps
+  if (answers.installation) {
+    //ask installation steps
+    const installationAnswer = await inquirer.prompt(installationSteps);
+    console.log(installationAnswer);
+  }
+
+  if (answers.usageSteps) {
+    const usageAnswer = await inquirer.prompt(usageSteps);
+    console.log(usageAnswer);
+  }
+
+  if (answers.testing) {
+    const testingAnswer = await inquirer.prompt(testingSteps);
+    console.log(testingAnswer);
+  }
 };
 initialize();
