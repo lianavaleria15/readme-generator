@@ -4,6 +4,17 @@ const generateTitle = (answers) => {
 };
 
 //generate table of contents
+const generateTableOfContents = (answers) => {
+  //if there are installation steps
+
+  return `## Table of Contents
+  - [answers.description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Tests](#tests)
+  - [Contributing](#contributing)
+  - [License](#license)`;
+};
 
 //generate description
 const generateDescription = (answers) => {
@@ -28,7 +39,7 @@ ${answers.installationSteps}
   }
 };
 
-//generate usage, if confirme
+//generate usage, if confirm
 const generateUsage = (answers) => {
   if (answers.usage) {
     return `## Usage
@@ -61,22 +72,32 @@ const generateTests = (answers) => {
 };
 
 //generate contributing
-const generateContributing = (answers) => {
+const generateContributing = ({ contribution }) => {
   return `## How To Contribute
   
-  ${answers.contribution}`;
+  ${contribution}`;
 };
 
+//generate questions section
+const geneerateQuestions = (answers) => {
+  return `## Questions
+  
+  If you have any questions related to the rep, please contact ${answers.username} via email ${answers.email}`;
+};
 //generate licence
-const generateLicense = (answers) => {
+const generateLicense = ({ licenceType }) => {
   return `## License
- ${answers.licenceType}`;
+
+  This project is licensed under the ${licenceType}
+ `;
 };
 
 //generate readme here
 const generateReadme = (answers) => {
   return `${generateTitle(answers)}
   
+  ${generateTableOfContents(answers)}
+
   ${generateDescription(answers)}
 
   ${generateInstallation(answers)}
@@ -85,6 +106,8 @@ const generateReadme = (answers) => {
    
   ${generateTests(answers)}
   
+  ${generateContributing(answers)}
+
   ${generateContributing(answers)}
   
   ${generateLicense(answers)}`;
