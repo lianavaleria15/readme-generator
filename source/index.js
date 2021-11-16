@@ -63,7 +63,7 @@ const questions = [
   },
   {
     type: "list",
-    name: "licenceType ",
+    name: "licenceType",
     choices: [
       { name: "a", value: "a" },
       { name: "a", value: "a" },
@@ -76,7 +76,7 @@ const questions = [
   { type: "input", name: "email", message: "What is your email?" },
   {
     type: "input",
-    name: "email",
+    name: "contribution",
     message: "How can people contribute to this app?",
   },
 ];
