@@ -4,22 +4,50 @@ A command-line application that dynamically generates a professional README.md f
 
 ## Table of Contents
 
+- [Description](#Description)
+- [Demo](#Demo)
+- [Getting started](#getting-started)
+- [Screenshots](#screenshots)
+
 ## Description
+
+The following application assists users in generating a Readme.Me file for their GitHub projects. The readme generator was built using Node.js and Inquirer.js. When running the app, the user is prompt with questions regarding the content of the readme file, by using inquirer.js.
+
+## Demo
+
+### Video link
+
+Click [here](here) to watch the demo.
+
+### Gif
 
 ## Getting Started
 
-Step-by-step instructions how to get started with node:
+### Installation
 
-- clone repo
-- install packages
-- what script to run to get questions to be prompted
+To run the application, you will need to have [node.js](https://nodejs.org/en/) installed.
+
+#### Clone repository
+
+`git clone git@github.com:lianavaleria15/readme-generator.git`
+
+#### Install packages
+
+- use `npm init -y` to install package.json
+- use `npm install inquirer` to install inquiry dependency
+
+### Usage
+
+- run `npm run start` in the terminal to be prompted with the questions
 
 ## Packages Used
 
 ## Questions
 
-- link to repo
-- link to email and profile
+If you have any questions related to the application or repository, would like to collaborate or open an issue, please use the contact details below:
+
+- 👩 [Liana Laurentiu](https://github.com/lianavaleria15)
+- 📧 [liana.valeria15@gmail.com](mailto:liana.valeria15@gmail.com)
 
 ## Screenshots
 
