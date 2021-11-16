@@ -24,6 +24,15 @@ const generateInstallation = (answers) => {
 };
 
 //generate usage, if confirmed
+const generateUsage = (answers) => {
+  return `## Usage
+  
+  To use the application run the following script:
+  
+  \`\`\`
+  ${answers.usageSteps}
+  \`\`\``;
+};
 
 //generate tests, if confirmed
 
@@ -37,7 +46,9 @@ const generateReadme = (answers) => {
   
   ${generateDescription(answers)};
 
-  ${generateInstallation(answers)}`;
+  ${generateInstallation(answers)};
+
+  ${generateUsage(answers)}`;
 };
 
 module.exports = generateReadme;
