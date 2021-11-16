@@ -16,6 +16,11 @@ Step-by-step instructions how to get started with node:
 
 ## Packages Used
 
+## Questions
+
+- link to repo
+- link to email and profile
+
 ## Screenshots
 
 - questions being prompted

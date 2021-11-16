@@ -1,6 +1,9 @@
 //import inquirer
 const inquirer = require("inquirer");
 
+//import file systems
+const fs = require("fs");
+
 //import util files here
 //const utilFunctions = require ("relative_path_to_util_functions")
 
@@ -21,15 +24,42 @@ const questions = [
     name: "installation",
     message: "Do you have an installation script for your application?",
   },
+  //if has installation steps
+  {
+    type: "input",
+    name: "installationSteps",
+    message: "Please type the installation steps here:",
+    when: (answers) => {
+      return answers.installation;
+    },
+  },
   {
     type: "confirm",
-    name: "usageSteps",
+    name: "usage",
     message: "Do you have usage steps for the application?",
+  },
+  //if has usage steps
+  {
+    type: "input",
+    name: "usageSteps",
+    message: "Please type the usage steps here:",
+    when: (answers) => {
+      return answers.usage;
+    },
   },
   {
     type: "confirm",
     name: "testing",
     message: "Does your application require testing?",
+  },
+  //if has testing steps
+  {
+    type: "input",
+    name: "testingSteps",
+    message: "Please type the testing steps here:",
+    when: (answers) => {
+      return answers.testing;
+    },
   },
   {
     type: "list",
@@ -51,53 +81,9 @@ const questions = [
   },
 ];
 
-//installation steps
-const installationSteps = [
-  {
-    type: "input",
-    name: "installationSteps",
-    message: "Please type the installation steps here:",
-  },
-];
-
-//usage steps question
-const usageSteps = [
-  {
-    type: "input",
-    name: "usageSteps",
-    message: "Please type the usage steps here:",
-  },
-];
-
-//testing steps question
-const testingSteps = [
-  {
-    type: "input",
-    name: "testingSteps",
-    message: "Please type the testing steps here:",
-  },
-];
-
 const initialize = async () => {
   //prompt questions and get answers
   const answers = await inquirer.prompt(questions);
   console.log(answers);
-
-  //conditions for testing, usage, and installation steps
-  if (answers.installation) {
-    //ask installation steps
-    const installationAnswer = await inquirer.prompt(installationSteps);
-    console.log(installationAnswer);
-  }
-
-  if (answers.usageSteps) {
-    const usageAnswer = await inquirer.prompt(usageSteps);
-    console.log(usageAnswer);
-  }
-
-  if (answers.testing) {
-    const testingAnswer = await inquirer.prompt(testingSteps);
-    console.log(testingAnswer);
-  }
 };
 initialize();
