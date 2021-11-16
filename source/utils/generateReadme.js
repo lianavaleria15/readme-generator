@@ -6,7 +6,11 @@ const generateTitle = (answers) => {
 //generate table of contents
 
 //generate description
-
+const generateDescription = (answers) => {
+  return `## Description
+  
+  ${answers.description}`;
+};
 //generate installation steps, if confirmed
 
 //generate usage, if confirmed
@@ -19,7 +23,9 @@ const generateTitle = (answers) => {
 
 //generate readme here
 const generateReadme = (answers) => {
-  return `${generateTitle(answers)}`;
+  return `${generateTitle(answers)}
+  
+  ${generateDescription(answers)}`;
 };
 
 module.exports = generateReadme;
