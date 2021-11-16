@@ -11,7 +11,17 @@ const generateDescription = (answers) => {
   
   ${answers.description}`;
 };
+
 //generate installation steps, if confirmed
+const generateInstallation = (answers) => {
+  return `## Installation
+  
+  Run the following script to install the packages required for the application:
+  
+  \`\`\`
+ ${answers.installationSteps}
+  \`\`\``;
+};
 
 //generate usage, if confirmed
 
@@ -23,9 +33,11 @@ const generateDescription = (answers) => {
 
 //generate readme here
 const generateReadme = (answers) => {
-  return `${generateTitle(answers)}
+  return `${generateTitle(answers)};
   
-  ${generateDescription(answers)}`;
+  ${generateDescription(answers)};
+
+  ${generateInstallation(answers)}`;
 };
 
 module.exports = generateReadme;
