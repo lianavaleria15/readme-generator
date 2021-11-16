@@ -5,7 +5,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 
 //import util files here
-//const utilFunctions = require ("relative_path_to_util_functions")
+const generateReadme = require("./utils/generateReadme.js");
 
 //make a list of questions
 const questions = [
@@ -80,10 +80,21 @@ const questions = [
     message: "How can people contribute to this app?",
   },
 ];
+const writeToFile = (filePath, data) => {
+  try {
+    fs.writeFileSync(filePath, data);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
 
 const initialize = async () => {
   //prompt questions and get answers
   const answers = await inquirer.prompt(questions);
   console.log(answers);
+
+  const generatedReadme = generateReadme(answers);
+
+  writeToFile("generatedREADME.md", generatedReadme);
 };
 initialize();
