@@ -1,6 +1,6 @@
 //generate title
 const generateTitle = (answers) => {
-  return `# ${answers.title} ![MIT](https://img.shields.io/static/v1?label=MIT&message=License&color=green)`;
+  return `# ${answers.title} ![${answers.licenceType}](https://img.shields.io/static/v1?label=${answers.licenceType}&message=License&color=green)`;
 };
 
 //generate table of contents
