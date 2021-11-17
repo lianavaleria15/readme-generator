@@ -4,10 +4,20 @@ A command-line application that dynamically generates a professional README.md f
 
 ## Table of Contents
 
-- [Description](#Description)
-- [Demo](#Demo)
-- [Getting started](#getting-started)
-- [Screenshots](#screenshots)
+- [Readme Generator](#readme-generator)
+  - [Table of Contents](#table-of-contents)
+  - [Description](#description)
+  - [Demo](#demo)
+    - [Video link](#video-link)
+    - [Gif](#gif)
+  - [Getting Started](#getting-started)
+    - [Installation](#installation)
+      - [Clone repository](#clone-repository)
+      - [Install packages](#install-packages)
+    - [Usage](#usage)
+  - [Packages Used](#packages-used)
+  - [Questions](#questions)
+  - [Screenshots](#screenshots)
 
 ## Description
 
