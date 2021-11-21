@@ -1,17 +1,19 @@
+//generate table of contents
+
 //generate title
 const generateTitle = (answers) => {
   return `# ${answers.title} ![${answers.licenceType}](https://img.shields.io/static/v1?label=${answers.licenceType}&message=License&color=green)`;
 };
 
 //generate table of contents
-const generateTableOfContents = (answers) => {
+const generateTableOfContents = ({ installation, usage, testing }) => {
   //if there are installation steps
 
   return `## Table of Contents
-  - [answers.description](#description)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Tests](#tests)
+  - [Description](#description)
+  ${installation ? "- [Installation](#installation)" : ""}
+  ${usage ? "- [Usage](#usage)" : ""}
+  ${testing ? "- [Tests](#tests)" : ""}
   - [Contributing](#contributing)
   - [License](#license)`;
 };
@@ -25,14 +27,20 @@ const generateDescription = (answers) => {
 
 //generate installation steps, if confirmed
 const generateInstallation = (answers) => {
-  if (answers.installation) {
+  if (answers.installationAnswers) {
     return `## Installation
   
   Run the following script to install the packages required for the application:
   
-  \`\`\`
-${answers.installationSteps}
-\`\`\`
+  
+${answers.installationInstructions
+  .map(function (answer) {
+    return `\`\`\`
+  ${answer.installation}
+  \`\`\``;
+  })
+  .join("\n")}
+
   `;
   } else {
     return ``;
@@ -41,30 +49,40 @@ ${answers.installationSteps}
 
 //generate usage, if confirm
 const generateUsage = (answers) => {
-  if (answers.usage) {
+  if (answers.usageAnswers) {
     return `## Usage
   
   To use the application run the following script:
+
+${answers.usageInstructions
+  .map(function (answer) {
+    return `\`\`\`
+  ${answer.usage}
+  \`\`\``;
+  })
+  .join("\n")}
   
-  \`\`\`
-  ${answers.usageSteps}
-  \`\`\`
   `;
   } else {
     return ``;
   }
 };
 
-//generate tests, if confirmed
+//generate usage, if confirm
 const generateTests = (answers) => {
-  if (answers.testing) {
+  if (answers.testingAnswers) {
     return `## Tests
   
-  To use the application run the following script:
+  To test the application run the following script:
+
+${answers.testingInstructions
+  .map(function (answer) {
+    return `\`\`\`
+  ${answer.testing}
+  \`\`\``;
+  })
+  .join("\n")}
   
-  \`\`\`
-  ${answers.testingSteps}
-  \`\`\`
   `;
   } else {
     return ``;
@@ -79,7 +97,7 @@ const generateContributing = ({ contribution }) => {
 };
 
 //generate questions section
-const geneerateQuestions = (answers) => {
+const generateQuestions = (answers) => {
   return `## Questions
   
   If you have any questions related to the rep, please contact ${answers.username} via email ${answers.email}`;
@@ -108,8 +126,8 @@ const generateReadme = (answers) => {
   
   ${generateContributing(answers)}
 
-  ${generateContributing(answers)}
-  
+  ${generateQuestions(answers)}
+
   ${generateLicense(answers)}`;
 };
 

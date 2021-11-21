@@ -1,6 +1,6 @@
 # Readme Generator
 
-A command-line application that dynamically generates a professional README.md file from a user's input using Node.Js and Inquiry
+A command-line application that dynamically generates a professional readme file from a user's input using Node.Js and Inquiry.Js
 
 ## Table of Contents
 
