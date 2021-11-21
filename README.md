@@ -1,6 +1,6 @@
 # Readme Generator
 
-A command-line application that dynamically generates a professional readme file from a user's input using Node.Js and Inquiry.Js
+A command-line application that dynamically generates a professional readme file from a user's input using Node.Js and Inquiry.Js.
 
 ## Table of Contents
 
@@ -8,8 +8,6 @@ A command-line application that dynamically generates a professional readme file
   - [Table of Contents](#table-of-contents)
   - [Description](#description)
   - [Demo](#demo)
-    - [Video link](#video-link)
-    - [Gif](#gif)
   - [Getting Started](#getting-started)
     - [Installation](#installation)
       - [Clone repository](#clone-repository)
@@ -18,18 +16,15 @@ A command-line application that dynamically generates a professional readme file
   - [Packages Used](#packages-used)
   - [Questions](#questions)
   - [Screenshots](#screenshots)
+    - [Questions prompted on the terminal](#questions-prompted-on-the-terminal)
 
 ## Description
 
-The following application assists users in generating a Readme.Me file for their GitHub projects. The readme generator was built using Node.js and Inquirer.js. When running the app, the user is prompt with questions regarding the content of the readme file, by using inquirer.js.
+The following application assists users in generating a readme file for their GitHub projects. The readme generator was built using Node.js and Inquirer.js. The user is prompted with a series of questions regarding the readme file content (e.g. installation, usage or testing steps, contact details, how can people contribute to their project). After all answers are typed, a message is printed on the terminal to inform the user the file was generated.
 
 ## Demo
 
-### Video link
-
-Click [here](here) to watch the demo.
-
-### Gif
+Click [here](https://drive.google.com/file/d/1ow9XaH1cUGkxuxBqRvq8QZTTT-uSGoPG/view?usp=sharing) to watch the demo.
 
 ## Getting Started
 
@@ -61,4 +56,6 @@ If you have any questions related to the application or repository, would like t
 
 ## Screenshots
 
-- questions being prompted
+### Questions prompted on the terminal
+
+![screenshot with prompted questions on the terminal](assets/screenshots/terminal.jpg)

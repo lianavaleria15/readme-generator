@@ -22,10 +22,10 @@
   
   
 ```
-  npm i inquirer
+  run i inuirer
   ```
 ```
-  npm i moment
+  run i moment
   ```
 
   
@@ -45,7 +45,7 @@
   ## Contributing
   
   If you would like to contribute to this project please:
-  git fork and clone
+  fork and clone repository
 
   ## Questions
   
