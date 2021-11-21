@@ -121,6 +121,7 @@ const generateQuestions = (answers) => {
   
   If you have any questions related to the rep, please contact [${answers.username}](https://github.com/${answers.username}) via email [${answers.email}](mailto:${answers.email})`;
 };
+
 //generate licence
 const generateLicense = ({ licenceType }) => {
   return `## License
