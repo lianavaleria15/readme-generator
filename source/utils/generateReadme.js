@@ -26,7 +26,7 @@ const generateTableOfContents = (answers) => {
   const contents = [
     "- [Description](#description)",
     ...getDynamicTocElements(answers),
-    "- [Contributing](#Contributing)",
+    "- [Contributing](#contributing)",
     "- [Questions](#questions)",
     "- [License](#license)",
   ];
@@ -48,7 +48,7 @@ const generateInstallation = (answers) => {
   if (answers.installationAnswers) {
     return `## Installation
   
-Run the following script to install the packages required for the application:
+  Run the following script to install the packages required for the application:
   
   
 ${answers.installationInstructions
@@ -111,6 +111,7 @@ ${answers.testingInstructions
 const generateContributing = ({ contribution }) => {
   return `## Contributing
   
+  If you would like to contribute to this project please:
   ${contribution}`;
 };
 
@@ -118,7 +119,7 @@ const generateContributing = ({ contribution }) => {
 const generateQuestions = (answers) => {
   return `## Questions
   
-  If you have any questions related to the rep, please contact ${answers.username} via email ${answers.email}`;
+  If you have any questions related to the rep, please contact [${answers.username}](https://github.com/${answers.username}) via email [${answers.email}](mailto:${answers.email})`;
 };
 //generate licence
 const generateLicense = ({ licenceType }) => {

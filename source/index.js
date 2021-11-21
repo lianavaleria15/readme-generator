@@ -39,6 +39,7 @@ const questions = [
     message: "How can people contribute to this app?",
   },
 ];
+
 //if has installation steps
 const installationSteps = [
   {
@@ -99,7 +100,9 @@ const initialize = async () => {
   const answers = await inquirer.prompt(questions);
 
   answers.installationAnswers = await inquirer.prompt(installationSteps);
-  if (answers.installationAnswers) {
+  console.log(answers.installationAnswers);
+  //prompt installation questions
+  if (answers.installationAnswers.installation) {
     const results = await loopQuestion({
       type: "input",
       name: "installation",
@@ -109,8 +112,9 @@ const initialize = async () => {
     answers.installationInstructions = results;
   }
 
+  //prompt usage questions
   answers.usageAnswers = await inquirer.prompt(usageSteps);
-  if (answers.usageAnswers) {
+  if (answers.usageAnswers.usage) {
     const results = await loopQuestion({
       type: "input",
       name: "usage",
@@ -119,8 +123,10 @@ const initialize = async () => {
     });
     answers.usageInstructions = results;
   }
+
+  //prompt testing questions
   answers.testingAnswers = await inquirer.prompt(testingSteps);
-  if (answers.testingAnswers) {
+  if (answers.testingAnswers.testing) {
     const results = await loopQuestion({
       type: "input",
       name: "testing",
@@ -136,4 +142,6 @@ const initialize = async () => {
 
   writeToFile("generatedREADME.md", generatedReadme);
 };
+
+//run application
 initialize();
