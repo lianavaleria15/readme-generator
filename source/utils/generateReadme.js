@@ -89,7 +89,7 @@ ${answers.usageInstructions
 //generate usage, if confirm
 const generateTests = (answers) => {
   if (answers.testingAnswers.testing) {
-    return `## Tests
+    return `## Testing
   
   To test the application run the following script:
 
