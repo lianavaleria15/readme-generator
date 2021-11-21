@@ -46,14 +46,6 @@ const installationSteps = [
     name: "installation",
     message: "Do you have an installation script for your application?",
   },
-  // {
-  //   type: "input",
-  //   name: "installationSteps",
-  //   message: "Please type the installation steps here:",
-  //   when: (answers) => {
-  //     return answers.installation;
-  //   },
-  // },
 ];
 
 //if has usage steps
@@ -63,14 +55,6 @@ const usageSteps = [
     name: "usage",
     message: "Do you have usage steps for the application?",
   },
-  // {
-  //   type: "input",
-  //   name: "usageSteps",
-  //   message: "Please type the usage steps here:",
-  //   when: (answers) => {
-  //     return answers.usage;
-  //   },
-  // },
 ];
 
 const testingSteps = [
@@ -79,15 +63,6 @@ const testingSteps = [
     name: "testing",
     message: "Does your application require testing?",
   },
-  // if has testing steps
-  // {
-  //   type: "input",
-  //   name: "testingSteps",
-  //   message: "Please type the testing steps here:",
-  //   when: (answers) => {
-  //     return answers.testing;
-  //   },
-  // },
 ];
 
 const writeToFile = (filePath, data) => {

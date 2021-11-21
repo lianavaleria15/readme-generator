@@ -2,20 +2,38 @@
 
 //generate title
 const generateTitle = (answers) => {
-  return `# ${answers.title} ![${answers.licenceType}](https://img.shields.io/static/v1?label=${answers.licenceType}&message=License&color=green)`;
+  return `# ${answers.title} ![${answers.licenceType}](https://img.shields.io/static/v1?label=${answers.licenceType}&message=License&color=green)\n`;
+};
+
+//generate dynamic table of contents elements
+const getDynamicTocElements = ({
+  installationAnswers,
+  usageAnswers,
+  testingAnswers,
+}) => {
+  //array of dynamic toc contents
+  const contents = [];
+  //if installation, answers,testing present, push to array
+  if (installationAnswers) contents.push("- [Installation](#installation)");
+  if (usageAnswers) contents.push("- [Usage](#usage)");
+  if (testingAnswers) contents.push("- [Testing](#testing)");
+
+  return contents;
 };
 
 //generate table of contents
-const generateTableOfContents = ({ installation, usage, testing }) => {
-  //if there are installation steps
+const generateTableOfContents = (answers) => {
+  const contents = [
+    "- [Description](#description)",
+    ...getDynamicTocElements(answers),
+    "- [Contributing](#Contributing)",
+    "- [Questions](#questions)",
+    "- [License](#license)",
+  ];
 
-  return `## Table of Contents
-  - [Description](#description)
-  ${installation ? "- [Installation](#installation)" : ""}
-  ${usage ? "- [Usage](#usage)" : ""}
-  ${testing ? "- [Tests](#tests)" : ""}
-  - [Contributing](#contributing)
-  - [License](#license)`;
+  return `## Table of Contents\n
+  
+${contents.join("\n")}`;
 };
 
 //generate description
@@ -30,7 +48,7 @@ const generateInstallation = (answers) => {
   if (answers.installationAnswers) {
     return `## Installation
   
-  Run the following script to install the packages required for the application:
+Run the following script to install the packages required for the application:
   
   
 ${answers.installationInstructions
@@ -91,7 +109,7 @@ ${answers.testingInstructions
 
 //generate contributing
 const generateContributing = ({ contribution }) => {
-  return `## How To Contribute
+  return `## Contributing
   
   ${contribution}`;
 };
