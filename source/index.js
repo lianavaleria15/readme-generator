@@ -69,6 +69,7 @@ const testingSteps = [
 const writeToFile = (filePath, data) => {
   try {
     fs.writeFileSync(filePath, data);
+    console.log("ReadMe file was successfully generated.");
   } catch (error) {
     console.log(error.message);
   }
@@ -100,7 +101,7 @@ const initialize = async () => {
   const answers = await inquirer.prompt(questions);
 
   answers.installationAnswers = await inquirer.prompt(installationSteps);
-  console.log(answers.installationAnswers);
+
   //prompt installation questions
   if (answers.installationAnswers.installation) {
     const results = await loopQuestion({
@@ -135,8 +136,6 @@ const initialize = async () => {
     });
     answers.testingInstructions = results;
   }
-  console.log(answers);
-  console.log("ReadMe file was successfully generated.");
 
   const generatedReadme = generateReadme(answers);
 
