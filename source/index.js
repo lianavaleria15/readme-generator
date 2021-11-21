@@ -135,7 +135,7 @@ const initialize = async () => {
     });
     answers.testingInstructions = results;
   }
-
+  console.log(answers);
   console.log("ReadMe file was successfully generated.");
 
   const generatedReadme = generateReadme(answers);

@@ -1,5 +1,3 @@
-//generate table of contents
-
 //generate title
 const generateTitle = (answers) => {
   return `# ${answers.title} ![${answers.licenceType}](https://img.shields.io/static/v1?label=${answers.licenceType}&message=License&color=green)\n`;
@@ -13,10 +11,12 @@ const getDynamicTocElements = ({
 }) => {
   //array of dynamic toc contents
   const contents = [];
+
   //if installation, answers,testing present, push to array
-  if (installationAnswers) contents.push("- [Installation](#installation)");
-  if (usageAnswers) contents.push("- [Usage](#usage)");
-  if (testingAnswers) contents.push("- [Testing](#testing)");
+  if (installationAnswers.installation)
+    contents.push("- [Installation](#installation)");
+  if (usageAnswers.usage) contents.push("- [Usage](#usage)");
+  if (testingAnswers.testing) contents.push("- [Testing](#testing)");
 
   return contents;
 };
@@ -38,14 +38,14 @@ ${contents.join("\n")}`;
 
 //generate description
 const generateDescription = (answers) => {
-  return `## Description
+  return `\n## Description
   
   ${answers.description}`;
 };
 
 //generate installation steps, if confirmed
 const generateInstallation = (answers) => {
-  if (answers.installationAnswers) {
+  if (answers.installationAnswers.installation) {
     return `## Installation
   
   Run the following script to install the packages required for the application:
@@ -67,7 +67,7 @@ ${answers.installationInstructions
 
 //generate usage, if confirm
 const generateUsage = (answers) => {
-  if (answers.usageAnswers) {
+  if (answers.usageAnswers.usage) {
     return `## Usage
   
   To use the application run the following script:
@@ -88,7 +88,7 @@ ${answers.usageInstructions
 
 //generate usage, if confirm
 const generateTests = (answers) => {
-  if (answers.testingAnswers) {
+  if (answers.testingAnswers.testing) {
     return `## Tests
   
   To test the application run the following script:
